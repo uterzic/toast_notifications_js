@@ -8,6 +8,15 @@ function showToast(message) {
     let toast = document.createElement('div');
     toast.classList.add('toast');
     toast.innerHTML = message;
-
     toastBox.appendChild(toast);
+
+    if(message.includes('error')) {
+        toast.classList.add('error');
+    } else if (message.includes('Invalid')) {
+        toast.classList.add('invalid');
+    }
+
+    setTimeout(() => {
+        toast.remove();
+    }, 5000);
 }
